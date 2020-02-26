@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from "./Home";
-import Documents from "./Documents";
-import Generator from "./Generate";
+import Home from "./pages/Home";
+import Documents from "./pages/Documents";
+import Generator from "./pages/Generate";
 
 function AllLinks() {
 	return (
