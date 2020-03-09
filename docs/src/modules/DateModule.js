@@ -3,7 +3,7 @@ import DateFnsUtils from "@date-io/date-fns";
 import uaLocale from "date-fns/locale/uk";
 import { KeyboardDatePicker, MuiPickersUtilsProvider,} from "@material-ui/pickers";
 
-function Date() {
+function DateModule() {
 	const [selectedDate, setSelectedDate] = useState(null);
 
 	const handleDateChange = date => {
@@ -18,7 +18,7 @@ function Date() {
 				format="MM/dd/yyyy"
 				margin="normal"
 				id="date-picker-inline"
-				label="Оберіть дату >"
+				label="Оберіть дату"
 				value={selectedDate}
 				onChange={handleDateChange}
 				KeyboardButtonProps={{
@@ -29,4 +29,4 @@ function Date() {
 	)
 }
 
-export default Date
+export default DateModule
