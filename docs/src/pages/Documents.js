@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Documents() {
 	return(
 		<div>
-			<Link to='/generator'>Згенерувати документ</Link>
+			<Link to='/generator/1'>Довіреність на розпорядження</Link>
 		</div>
 	)
 }

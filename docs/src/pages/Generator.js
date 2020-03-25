@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import {makeStyles} from "@material-ui/core/styles";
-import DateModule from "../modules/DateModule";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import Template1 from "../document_templates/Template1";
+import StepRender from "../constants/StepRender";
+
+import { DocContext } from "../components/DocContext";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -32,10 +35,12 @@ const useStyles = makeStyles(theme => ({
 		marginLeft: 'auto',
 		marginRight: 'auto',
 	}
-}))
+}));
 
-function Generator() {
+const Generator = (props) => {
 	const classes = useStyles();
+
+	const [state, setState] = useContext(DocContext);
 
 	return (
 		<div className={classes.root}>
@@ -43,16 +48,25 @@ function Generator() {
 				<Grid item xs={3} className={classes.fixed_generator}>
 					<h1 className={classes.title}>Заповніть інформацію в полях нижче</h1>
 					<Paper className={classes.paper}>
-						<h2>Крок 1</h2>
-						<h3>Виберіть дату оформлення документу</h3>
-						<DateModule/>
-						<Button variant='contained' color='primary' className={classes.next_button} endIcon={<NavigateNextIcon />}>
+						<StepRender id={props.match.params.id} />
+						{state.nextBtn &&
+							<Button variant='contained' color='primary' className={classes.next_button} endIcon={<NavigateNextIcon />}>
+								Наступний крок
+							</Button>
+						}
+						{!state.nextBtn &&
+						<Button disabled variant='contained' color='primary' className={classes.next_button} endIcon={<NavigateNextIcon />}>
 							Наступний крок
 						</Button>
+						}
+
 					</Paper>
 				</Grid>
 				<Grid item xs={9}>
-					<Paper className={classes.paper}>xs=6</Paper>
+					<Paper className={classes.paper}>
+						{ state.test }
+						<Template1 />
+					</Paper>
 				</Grid>
 			</Grid>
 		</div>
