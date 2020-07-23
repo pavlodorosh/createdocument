@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import Template1 from "../document_templates/Template1";
-import StepRender from "../constants/StepRender";
+import Template1 from "../../document_templates/Template1";
+import StepRender from "../../constants/StepRender";
 
-import { DocContext } from "../components/DocContext";
+import { DocContext } from "../../components/DocContext";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -37,19 +37,19 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const Generator = (props) => {
+const Generator = ({ onHandleChangeStep, path, i }) => {
 	const classes = useStyles();
-
+debugger
 	const [state, setState] = useContext(DocContext);
 
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3}>
 				<Grid item xs={3} className={classes.fixed_generator}>
-					<h1 className={classes.title}>Заповніть інформацію в полях нижче</h1>
+					<h1 className={classes.title}>{i}Заповніть інформацію в полях нижче</h1>
 					<Paper className={classes.paper}>
 
-						<StepRender id={props.match.params.id} />
+						<StepRender id={ path.match.params.id } />
 						{state.nextBtn &&
 							<Button
 								variant='contained'
@@ -61,7 +61,13 @@ const Generator = (props) => {
 							</Button>
 						}
 						{!state.nextBtn &&
-						<Button disabled variant='contained' color='primary' className={classes.next_button} endIcon={<NavigateNextIcon />}>
+						<Button
+							variant='contained'
+							color='primary'
+							className={classes.next_button}
+							endIcon={<NavigateNextIcon />}
+							onClick={onHandleChangeStep}
+						>
 							Наступний крок
 						</Button>
 						}

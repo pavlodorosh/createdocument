@@ -1,8 +1,8 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import DateFnsUtils from "@date-io/date-fns";
 import uaLocale from "date-fns/locale/uk";
-import { KeyboardDatePicker, MuiPickersUtilsProvider,} from "@material-ui/pickers";
-import {DocContext} from "../components/DocContext";
+import { KeyboardDatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+import { DocContext } from "../components/DocContext";
 
 const DateModule = () => {
 	const [state, setState] = useContext(DocContext);
