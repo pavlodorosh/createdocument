@@ -37,10 +37,14 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const Generator = ({ onHandleChangeStep, path, i }) => {
+const Date = ({ onHandleChangeStep, path, i, onHandleChangeCount }) => {
 	const classes = useStyles();
-debugger
+
 	const [state, setState] = useContext(DocContext);
+	const handlerClick = () => {
+		onHandleChangeCount()
+		onHandleChangeStep()
+	}
 
 	return (
 		<div className={classes.root}>
@@ -66,12 +70,11 @@ debugger
 							color='primary'
 							className={classes.next_button}
 							endIcon={<NavigateNextIcon />}
-							onClick={onHandleChangeStep}
+							onClick={handlerClick}
 						>
 							Наступний крок
 						</Button>
 						}
-
 					</Paper>
 				</Grid>
 				<Grid item xs={9}>
@@ -85,4 +88,4 @@ debugger
 	)
 }
 
-export default Generator
+export default Date

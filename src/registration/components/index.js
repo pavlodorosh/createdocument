@@ -1,3 +1,5 @@
-import Generator from './Generator';
+import Date from './Date';
+import SurnameInfo from './SurnameInfo';
+import RegistrationNumber from './RegistrationNumber';
 
-export { Generator };
+export { Date, SurnameInfo, RegistrationNumber };
