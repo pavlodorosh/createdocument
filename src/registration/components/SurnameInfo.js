@@ -39,10 +39,9 @@ const useStyles = makeStyles(theme => ({
 
 const Date = ({ onHandleChangeStep, path, i, onHandleChangeCount }) => {
     const classes = useStyles();
-    debugger
+
     const [state, setState] = useContext(DocContext);
     const handlerClick = () => {
-        debugger
         onHandleChangeCount()
         onHandleChangeStep()
     }

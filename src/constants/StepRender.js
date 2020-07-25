@@ -4,7 +4,7 @@ import { DocContext } from "../components/DocContext";
 
 const StepRender = (props) => {
     const [state, setState] = useContext(DocContext);
-debugger
+
     const renderData = [
         {
             modules: [

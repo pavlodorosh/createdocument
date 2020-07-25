@@ -4,10 +4,8 @@ import { STEPS_MAP, DOCUMENT } from './constants/StepMap';
 
 export default (props) => {
     const [page, setPage] = useState(STEPS_MAP.DATE_INFO);
-
     const [count, setCount] = useState(1);
 
-    debugger
     switch (page) {
         case STEPS_MAP.DATE_INFO: {
 

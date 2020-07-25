@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useParams } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core/styles";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Grid from "@material-ui/core/Grid";
@@ -45,6 +46,8 @@ const Date = ({ onHandleChangeStep, path, i, onHandleChangeCount }) => {
 		onHandleChangeCount()
 		onHandleChangeStep()
 	}
+	const a = useParams()
+debugger;
 
 	return (
 		<div className={classes.root}>
