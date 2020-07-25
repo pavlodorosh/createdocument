@@ -1,12 +1,11 @@
-import React, { useContext, useState } from "react";
-import DateFnsUtils from "@date-io/date-fns";
-import uaLocale from "date-fns/locale/uk";
-import { KeyboardDatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-import { DocContext } from "../components/DocContext";
+import React, { useState } from 'react';
+import DateFnsUtils from '@date-io/date-fns';
+import uaLocale from 'date-fns/locale/uk';
+import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 const DateModule = () => {
-	const [state, setState] = useContext(DocContext);
 	const [selectedDate, setSelectedDate] = useState('01/01/2020');
+	const [state, setStateDate] = useState('');
 
 	const GetDay = day => {
 		let result = '';
@@ -313,11 +312,7 @@ const DateModule = () => {
 			date = GetDay(dateArray[1]) + GetMonth(dateArray[0]) + GetYear(dateArray[2]);
 		}
 
-		setState(state => ({
-			...state,
-			test: date
-		}));
-
+		setStateDate(date);
 	};
 
 	return(
@@ -336,6 +331,7 @@ const DateModule = () => {
 						'aria-label': 'change date',
 					}}
 				/>
+				<h1>{state}</h1>
 			</MuiPickersUtilsProvider>
 		</div>
 	)
