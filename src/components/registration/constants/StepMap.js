@@ -1,0 +1,15 @@
+export const FIELDS_INFORMATION = {
+    DATE_INFO: 'Date',
+    NAME_INFO: 'Name',
+    SURNAME_INFO: 'SurnameInfo',
+    REGISTRATION_NUMBER: 'Registration Number',
+    GENDER: 'Gender',
+    SUCCESS: 'Success',
+};
+
+export const DOCUMENT = [
+    FIELDS_INFORMATION.DATE_INFO,
+    FIELDS_INFORMATION.SURNAME_INFO,
+    FIELDS_INFORMATION.REGISTRATION_NUMBER,
+    FIELDS_INFORMATION.GENDER
+];

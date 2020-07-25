@@ -1,35 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import { Route, Switch } from 'react-router-dom';
 
-import Routes from './constants/Routes';
-import { DocContext } from "./components/DocContext";
+import Home from './pages/Home';
+import Documents from './pages/Documents';
+import Registration from './pages/Registration';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
 	base: {
 		overflowX: 'hidden',
 		fontFamily: 'sans-serif'
-	},
-}));
+	}
+});
 
 const App = () => {
 	const classes = useStyles();
-	const [state, setState] = useState(
-		{
-			values: {},
-			count: 0,
-			step: 1,
-			nextBtn: false,
-			test: null
-		},
-		() => {},
-	);
 
 	return (
-		<DocContext.Provider value={[state, setState]}>
-			<div className={classes.base}>
-				<Routes/>
-			</div>
-		</DocContext.Provider>
+		<div className={classes.base}>
+			<Switch>
+				<Route exact path='/' component={Home} />
+				<Route exact path='/documents' component={Documents} />
+				<Route exact path='/generator/:id' component={Registration} />
+			</Switch>
+		</div>
 	)
 };
 
