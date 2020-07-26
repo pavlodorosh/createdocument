@@ -1,8 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { StepButton, Stepper, Step, Button, Typography } from '@material-ui/core';
+
 import Switch from './components/ManageInfo';
 import { DOCUMENT } from './constants/StepMap';
+import { connect } from "react-redux";
+import * as actions from '../../redux/actions/index';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,25 +20,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default  () => {
+const Registration = ({ setActiveStepReset, activeStep }) => {
     const classes = useStyles();
-    const [activeStep, setActiveStep] = React.useState(0);
     const steps = DOCUMENT;
 
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    };
-
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
-
     const handleReset = () => {
-        setActiveStep(0);
+        setActiveStepReset(0);
     };
 
     return (
-        <div className={classes.root}>
+        <div className={ classes.root }>
             <Stepper activeStep={activeStep}>
                 {steps.map((label) => (
                     <Step key={label}>
@@ -52,21 +46,15 @@ export default  () => {
                 ) : (
                     <div>
                         <Switch activeStep={activeStep} />
-                        <div>
-                            <Button
-                                disabled={activeStep === 0}
-                                onClick={handleBack}
-                                className={classes.backButton}
-                            >
-                                Back
-                            </Button>
-                            <Button variant="contained" color="primary" onClick={handleNext}>
-                                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                            </Button>
-                        </div>
                     </div>
                 )}
             </div>
         </div>
     );
 }
+
+const mapStateToProps = (state) => ({
+    activeStep: state.registration.activeStep
+})
+
+export default connect(mapStateToProps, actions)(Registration);

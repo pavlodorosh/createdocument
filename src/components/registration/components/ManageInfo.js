@@ -4,7 +4,7 @@ import { Date, SurnameInfo } from './index';
 import { FIELDS_INFORMATION, DOCUMENT } from '../constants/StepMap';
 
 export default ({ activeStep }) => {
-debugger
+
     switch (DOCUMENT[activeStep]) {
         case FIELDS_INFORMATION.DATE_INFO: {
 
@@ -34,6 +34,7 @@ debugger
         }
 
         case FIELDS_INFORMATION.SURNAME_INFO: {
+            debugger
             return (
                 <SurnameInfo
                     i={DOCUMENT[activeStep]}

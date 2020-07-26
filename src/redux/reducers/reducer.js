@@ -1,7 +1,7 @@
-import FETCH_TYPES from '../types/types';
+import STEP_TYPES from '../types';
 
 const defaultState = {
-    totalLength: 0,
+    activeStep: 0,
 };
 
 // -------- Reducer --------
@@ -9,9 +9,27 @@ const defaultState = {
 export default (state = defaultState, action) => {
     debugger
     switch (action.type) {
-        case FETCH_TYPES.GET_REQUEST: {
+        case STEP_TYPES.SET_ACTIVE_STEPS_NEXT: {
+            debugger
             return {
                 ...state,
+                activeStep: state.activeStep + 1
+            };
+        }
+
+        case STEP_TYPES.SET_ACTIVE_STEPS_BACK: {
+            debugger
+            return {
+                ...state,
+                activeStep: state.activeStep - 1
+            };
+        }
+
+        case STEP_TYPES.SET_ACTIVE_STEPS_RESET: {
+
+            return {
+                ...state,
+                activeStep: 0
             };
         }
 

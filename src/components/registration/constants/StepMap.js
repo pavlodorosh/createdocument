@@ -1,9 +1,10 @@
 export const FIELDS_INFORMATION = {
-    DATE_INFO: 'Date',
-    NAME_INFO: 'Name',
+    FIRST_STEP: 'First_step',
+    DATE_INFO: 'DateInfo',
+    NAME_INFO: 'GeneralInfo',
     SURNAME_INFO: 'SurnameInfo',
-    REGISTRATION_NUMBER: 'Registration Number',
-    GENDER: 'Gender',
+    REGISTRATION_NUMBER: 'RegistrationNumber',
+    GENDER: 'gender',
     SUCCESS: 'Success',
 };
 
