@@ -1,4 +1,4 @@
-import Date from './Date';
+import Date from './Date/Date';
 import SurnameInfo from './SurnameInfo';
 import RegistrationNumber from './RegistrationNumber';
 import ManageInfo from './ManageInfo';

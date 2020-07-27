@@ -54,7 +54,7 @@ const Registration = ({ setActiveStepReset, activeStep }) => {
 }
 
 const mapStateToProps = (state) => ({
-    activeStep: state.registration.activeStep
+    activeStep: state.stepReducer.activeStep
 })
 
 export default connect(mapStateToProps, actions)(Registration);

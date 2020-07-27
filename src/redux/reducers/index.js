@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import registration from './reducer';
+import stepReducer from './stepsReducer';
+import allInformation from './allInformation';
 
 export default combineReducers({
-    registration,
+    stepReducer,
+    allInformation
 });

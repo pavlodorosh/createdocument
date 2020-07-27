@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import DateFnsUtils from '@date-io/date-fns';
+import { connect } from 'react-redux';
 import uaLocale from 'date-fns/locale/uk';
+import * as actions from '../../../../../redux/actions/index';
+
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 
-const DateModule = () => {
+const DateModule = ({ date, setStateDate }) => {
 	const [selectedDate, setSelectedDate] = useState('01/01/2020');
-	const [state, setStateDate] = useState('');
 
 	const GetDay = day => {
 		let result = '';
@@ -297,9 +299,7 @@ const DateModule = () => {
 						break;
 				}
 			}
-
 		}
-
 
 		return result;
 	};
@@ -331,10 +331,14 @@ const DateModule = () => {
 						'aria-label': 'change date',
 					}}
 				/>
-				<h1>{state}</h1>
+				<h1>{date}</h1>
 			</MuiPickersUtilsProvider>
 		</div>
 	)
 };
 
-export default DateModule
+const mapStateToProps = (state) => ({
+	date: state.allInformation.date
+});
+
+export default connect(mapStateToProps, actions)(DateModule)

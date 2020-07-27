@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Country from '../components/Country';
 import { Date, SurnameInfo } from './index';
 import { FIELDS_INFORMATION, DOCUMENT } from '../constants/StepMap';
 
@@ -15,39 +16,25 @@ export default ({ activeStep }) => {
             );
         }
 
+        case FIELDS_INFORMATION.SURNAME_INFO: {
+            return (
+                <Country />
+            );
+        }
+
         case FIELDS_INFORMATION.REGISTRATION_NUMBER: {
 
             return (
-                <SurnameInfo
-                    i={DOCUMENT[activeStep]}
-                />
+                <SurnameInfo />
             );
         }
 
-        case FIELDS_INFORMATION.NAME_INFO: {
 
-            return (
-                <SurnameInfo
-                    i={DOCUMENT[activeStep]}
-                />
-            );
-        }
-
-        case FIELDS_INFORMATION.SURNAME_INFO: {
-            debugger
-            return (
-                <SurnameInfo
-                    i={DOCUMENT[activeStep]}
-                />
-            );
-        }
 
         case FIELDS_INFORMATION.GENDER: {
 
             return (
-                <SurnameInfo
-                    i={DOCUMENT[activeStep]}
-                />
+                <SurnameInfo />
             );
         }
 

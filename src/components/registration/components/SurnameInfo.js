@@ -2,6 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Formik, Form } from 'formik';
 import Buttons from "./Buttons";
+import { connect } from 'react-redux';
+import * as actions from '../../../redux/actions/index';
+
 
 const useStyles = makeStyles({
     root: {
@@ -9,9 +12,9 @@ const useStyles = makeStyles({
     }
 });
 
-const Name = ({ i }) => {
+const NameInfo = ({ setActiveStepNext }) => {
     const classes = useStyles();
-debugger
+
     return (
         <div className={classes.root}>
             <div>
@@ -23,7 +26,8 @@ debugger
                     }}
                     // validationSchema={RegisterSchema(t)}
                     onSubmit={(values, actions) => {
-                    debugger
+
+                        setActiveStepNext();
                     }}
                 >
                     {({
@@ -38,12 +42,12 @@ debugger
                         return (
                             <Form onSubmit={handleSubmit} >
                                 <h1>
-                                 hhg
+                                 please fill this field
                                 </h1>
                                 <div>
                                     <div>
                                         <label>
-                                            personalInfo.general.firstName
+                                            firstName
                                             <input
                                                 type="text"
                                                 name="firstName"
@@ -69,7 +73,7 @@ debugger
                                                 onChange={handleChange}
                                             />
                                             {errors.surname && touched.surname ? (
-                                                <div> errors </div>
+                                                <div>errors {errors.surname }</div>
                                             ) : null}
 
                                         </label>
@@ -91,13 +95,8 @@ debugger
 
                                         </label>
                                     </div>
+                                    <Buttons />
                                 </div>
-                                <p>
-                                    sur name
-                                </p>
-                                <button type="submit">gf</button>
-
-                                <Buttons />
                             </Form>
                         );
                     }}
@@ -107,4 +106,4 @@ debugger
     )
 }
 
-export default Name;
+export default connect(null, actions)(NameInfo);

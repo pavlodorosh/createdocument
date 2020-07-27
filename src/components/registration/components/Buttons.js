@@ -16,12 +16,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Buttons = ({ setActiveStepBack, activeStep, setActiveStepNext }) => {
+const Buttons = ({ setActiveStepBack, activeStep, setActiveStepNext, isDate }) => {
     const classes = useStyles();
     const steps = DOCUMENT;
 
     const handleNext = () => {
-        setActiveStepNext();
+        if (isDate) {
+            setActiveStepNext();
+        }
     };
 
     const handleBack = () => {
@@ -30,15 +32,12 @@ const Buttons = ({ setActiveStepBack, activeStep, setActiveStepNext }) => {
 
     return (
         <div>
-            <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                className={classes.backButton}
-                type="submit"
-            >
+            <Button disabled={activeStep === 0}
+                    onClick={handleBack}
+                    className={classes.backButton}>
                 Back
             </Button>
-            <Button variant="contained" color="primary" onClick={handleNext}>
+            <Button variant="contained" type="submit" color="primary" onClick={handleNext}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
             </Button>
         </div>
@@ -46,7 +45,7 @@ const Buttons = ({ setActiveStepBack, activeStep, setActiveStepNext }) => {
 };
 
 const mapStateToProps = (state) => ({
-    activeStep: state.registration.activeStep
+    activeStep: state.stepReducer.activeStep
 });
 
 export default connect(mapStateToProps, actions)(Buttons);
