@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Country from '../components/Country';
+import Country from './Place/Country';
 import { Date, SurnameInfo } from './index';
 import { FIELDS_INFORMATION, DOCUMENT } from '../constants/StepMap';
 
